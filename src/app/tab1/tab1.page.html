@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Grabar Audio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!--<ion-row>
+    <ion-col>
+      <ion-button ion-button full (click)="VerInfoAudio()">Formatos de audio</ion-button>
+      {{ modos_audio }}
+    </ion-col>
+  </ion-row>
+     -->
+
+  <!--
+  <ion-row color="dark">
+    <ion-col>
+      <ion-button  expand="full" (click)="GrabarAudio()">Iniciar Audio</ion-button>
+    </ion-col>
+  </ion-row>
+  -->
+  <ion-row>
+    <ion-list>
+      <ion-item *ngFor="let audio of mediaFiles" tappable (click)="Reproducir(audio)" text-wrap>
+        <ion-label>
+          <p><b>{{ audio.name }}</b> - {{ audio.size / 1000 / 1000 | number }} MB
+            <br>
+            {{ audio.type }} - {{ audio.lastModifiedDate }}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+  
+  <ion-row>
+      <ion-col>
+        <ion-button  expand="full" (click)="GrabarAudio()">
+          <ion-icon slot="start" name="mic"></ion-icon>
+          Iniciar Audio
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" (click)="PushTab2()">Enviar Audio</ion-button>
+      </ion-col>
+  </ion-row>
+  
+ 
+</ion-content>

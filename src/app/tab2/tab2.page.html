@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Procesando Datos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngFor="let usuario of usuarios">
+        <ion-item>
+          <ion-label>
+            <b>ID:</b> {{usuario.id}}
+            -- <b>Nombre:</b> {{usuario.name}}
+          </ion-label>
+        </ion-item>     
+    </ion-list>
+    <ion-button (click)="ObtenerDatos()">Obtener Usuarios</ion-button>
+    <ion-row>
+        <ion-col>
+          <ion-button expand="full" (click)="PushTab3()">Ir a Pagina 3</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>
