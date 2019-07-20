@@ -17,15 +17,12 @@ const MEDIA_FILES_KEY = 'mediaFiles';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  mediaFiles = [];
-  modos_audio = [];
-  //audioFile = new File("fileName.wav");
-  
+  mediaFiles = [];  
   //tipo:string ="audio/wav";
 
   constructor(private router: Router,private mediaCapture: MediaCapture, private storage: Storage, 
     private file: File, private media: Media) {}
-    //, private dataConfig: ConfigurationData
+    
   
   ionViewDidLoad() {
     this.storage.get(MEDIA_FILES_KEY).then(res => {
@@ -33,17 +30,7 @@ export class Tab1Page {
     })
   }
 
-  /*captureAudio() {
-    //this.dataConfig = { type: "wav", height: 0, width: 0 }
-    //let options: ConfigurationData = { type: "wav", height: 0, width: 0 }
-    //this.mediaCapture.captureAudio(options).then(
-    this.mediaCapture.captureAudio().then(
-      res => {this.storeMediaFiles(res);}, 
-      (err: CaptureError) => console.error(err)
-    );
-  }*/
-
-  GrabarAudio() {    //Captura archivos de audio   
+  GrabarAudio() {                         //Captura archivos de audio   
     //const tipo_formato: CaptureAudioOptions = { type: '.wav' }
     //this.mediaCapture.captureAudio(tipo_formato).then(res => {
     this.mediaCapture.captureAudio().then(res => {
@@ -51,7 +38,7 @@ export class Tab1Page {
     }, (err: CaptureError) => console.error(err));
   }
 
-  Reproducir(miAudio) {  //Reproduce archivos de audio
+  Reproducir(miAudio) {                   //Reproduce archivos de audio
     //if (myFile.name.indexOf('.wav') > -1) {
       const audioFile: MediaObject = this.media.create(miAudio.localURL);
       audioFile.play();
@@ -71,21 +58,8 @@ export class Tab1Page {
     })
   }
 
-  /*configurarDatos(){
-    //var options = {type: "wav", height: 0, width: 0};
-    //let options: ConfigurationData = { type: "wav", height: 0, width: 0 }
-    //this.dataConfig = { type: "wav", height: 0, width: 0 }
-  }*/
-
-  VerInfoAudio(){
-    //this.modos_audio = navigator.device.capture.supportedAudioModes;
-
-  }
-
   PushTab2(){
-    //this.router.navigate(['app-tab2']);
     this.router.navigateByUrl('/app-tab2');
   }
   
-
 }
